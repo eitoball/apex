@@ -5,6 +5,10 @@ defmodule Apex do
     Pretty prints the supplied data
   """
   def ap(data, options \\ []) do
-    IO.puts(Apex.Format.format(data, options))
+    apd(:erlang.group_leader(), data, options)
+  end
+
+  def apd(device, data, options \\ []) do
+    IO.puts(device, Apex.Format.format(data, options))
   end
 end
